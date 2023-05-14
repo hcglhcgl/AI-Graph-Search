@@ -18,8 +18,8 @@ class AlgorithmsRadioButtons(Frame):
         self.__depth_limited = Radiobutton(self, text='depth limited search', variable=self.__var, value=3)
         self.__iterative_deepening = Radiobutton(self, text='iterative deepening search', variable=self.__var, value=4)
         self.__uniform = Radiobutton(self, text='uniform search', variable=self.__var, value=5)
-        self.__A = Radiobutton(self, text='A* search', variable=self.__var, value=6)
-        self.__greedy = Radiobutton(self, text='greedy best first search', variable=self.__var, value=7)
+        self.__A = Radiobutton(self, text='A* search - graph', variable=self.__var, value=6)
+        self.__greedy = Radiobutton(self, text='greedy best first search - graph', variable=self.__var, value=7)
         self.__button = Button(self ,text="Start Search" , command=self.__start_search)
         self.__submit_callback =submit_callback
         self.__canvas = canvas

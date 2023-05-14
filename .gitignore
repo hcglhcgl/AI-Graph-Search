@@ -1,1 +1,14 @@
 venv/*
+Algorithms/__pycache__/__init__.cpython-310.pyc
+Algorithms/__pycache__/base_class.cpython-310.pyc
+Algorithms/__pycache__/Search_Algorithms.cpython-310.pyc
+GUI/__pycache__/__init__.cpython-310.pyc
+GUI/__pycache__/Buttons.cpython-310.pyc
+GUI/__pycache__/canvas.cpython-310.pyc
+GUI/__pycache__/Interfaces.cpython-310.pyc
+GUI/__pycache__/Node.cpython-310.pyc
+GUI/__pycache__/radio_buttons.cpython-310.pyc
+GUI/__pycache__/settings.cpython-310.pyc
+GUI/__pycache__/treecanvas.cpython-310.pyc
+GUI/__pycache__/treenode.cpython-310.pyc
+GUI/__pycache__/utils.cpython-310.pyc
