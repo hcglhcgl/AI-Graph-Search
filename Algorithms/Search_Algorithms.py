@@ -138,13 +138,51 @@ class GreedyBestFirstSearch(BaseAlgorithm):
             child.set_value(child.get_node_heurastic())
         self.fringe.sort()
 
-class AStarSearch(BaseAlgorithm):
+class AStarSearchGraph(BaseAlgorithm):
     
     def expand_node(self):
-        super(AStarSearch,self).expand_node()
+        super(AStarSearchGraph,self).expand_node()
         children = self.current_node.getchildren()
         for child in children:        
             child.set_value(child.get_node_heurastic()+child.get_cost())
         self.fringe.sort()
 
+class AStarSearchTree(BaseAlgorithm):
+    
+    def expand_node(self):
+        super(AStarSearchTree,self).expand_node()
+        children = self.current_node.getchildren()
+        for child in children:        
+            child.set_value(child.get_node_heurastic()+child.get_cost())
+        self.fringe.sort()
+    def pick_node(self):
 
+        '''
+        implementation to pick new node  - tree style (no memory)      
+        ''' 
+        try: 
+            self.current_node = self.fringe.pop(0)
+            self.current_node.mark_active()
+            time.sleep(SLEEP_AMOUNT)
+        except :
+            self.current_node = None
+
+class GreedyBestFirstSearchTree(BaseAlgorithm):
+    def expand_node(self):
+        super(GreedyBestFirstSearchTree,self).expand_node()
+        children = self.current_node.getchildren()
+        for child in children:        
+            child.set_value(child.get_node_heurastic())
+        self.fringe.sort()
+        
+    def pick_node(self):
+
+        '''
+        implementation to pick new node  - tree style (no memory)      
+        ''' 
+        try: 
+            self.current_node = self.fringe.pop(0)
+            self.current_node.mark_active()
+            time.sleep(SLEEP_AMOUNT)
+        except :
+            self.current_node = None

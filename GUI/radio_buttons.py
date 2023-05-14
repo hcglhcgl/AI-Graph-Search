@@ -20,6 +20,8 @@ class AlgorithmsRadioButtons(Frame):
         self.__uniform = Radiobutton(self, text='uniform search', variable=self.__var, value=5)
         self.__A = Radiobutton(self, text='A* search - graph', variable=self.__var, value=6)
         self.__greedy = Radiobutton(self, text='greedy best first search - graph', variable=self.__var, value=7)
+        self.__ATree = Radiobutton(self, text='A* search - Tree', variable=self.__var, value=8)
+        self.__GreedyTree = Radiobutton(self, text='greedy best first search - Tree', variable=self.__var, value=9)
         self.__button = Button(self ,text="Start Search" , command=self.__start_search)
         self.__submit_callback =submit_callback
         self.__canvas = canvas
@@ -38,7 +40,9 @@ class AlgorithmsRadioButtons(Frame):
         self.__informed_label.grid(row=7,column=0,padx=(0, 5),pady=(10,10),sticky="W")
         self.__A.grid(row=8,column=0,padx=(0, 5),pady=(5,5),sticky="W")
         self.__greedy.grid(row=9,column=0,padx=(0, 5),pady=(5,5),sticky="W")
-        self.__button.grid(row=10,column=0,sticky = "NSEW",pady=(5,5))
+        self.__ATree.grid(row=10,column=0,padx=(0, 5),pady=(5,5),sticky="W")
+        self.__GreedyTree.grid(row=11,column=0,padx=(0, 5),pady=(5,5),sticky="W")
+        self.__button.grid(row=12,column=0,sticky = "NSEW",pady=(5,5))
         self.__depth_limited_text.grid(row=4,column=1)
         self.rowconfigure("all",weight=1)
 
@@ -58,9 +62,13 @@ class AlgorithmsRadioButtons(Frame):
         elif num == 5:
             self.__submit_callback(UniformCostSearch)
         elif num == 6:
-            self.__submit_callback(AStarSearch)
+            self.__submit_callback(AStarSearchGraph)
         elif num == 7:
             self.__submit_callback(GreedyBestFirstSearch)
+        elif num == 8:
+            self.__submit_callback(AStarSearchTree)
+        elif num == 9:
+            self.__submit_callback(GreedyBestFirstSearchTree)
         else:
             messagebox.showerror(title="Submit Error",message="You need to choose Algorithm")
 
