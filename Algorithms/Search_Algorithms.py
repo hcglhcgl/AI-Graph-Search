@@ -130,7 +130,7 @@ class UniformCostSearch(BaseAlgorithm):
 class UniformCostSearchTree(BaseAlgorithm):
 
     def expand_node(self):
-        super(UniformCostSearch,self).expand_node()        
+        super(UniformCostSearchTree,self).expand_node()        
         self.fringe.sort()
     def pick_node(self):
         '''
