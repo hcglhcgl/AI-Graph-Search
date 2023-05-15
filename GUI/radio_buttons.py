@@ -17,7 +17,8 @@ class AlgorithmsRadioButtons(Frame):
         self.__depth_first = Radiobutton(self, text='depth first search', variable=self.__var, value=2)
         self.__depth_limited = Radiobutton(self, text='depth limited search', variable=self.__var, value=3)
         self.__iterative_deepening = Radiobutton(self, text='iterative deepening search', variable=self.__var, value=4)
-        self.__uniform = Radiobutton(self, text='uniform search', variable=self.__var, value=5)
+        self.__uniform = Radiobutton(self, text='uniform search - graph', variable=self.__var, value=5)
+        self.__uniformTree = Radiobutton(self, text='uniform search - tree', variable=self.__var, value=10)
         self.__A = Radiobutton(self, text='A* search - graph', variable=self.__var, value=6)
         self.__greedy = Radiobutton(self, text='greedy best first search - graph', variable=self.__var, value=7)
         self.__ATree = Radiobutton(self, text='A* search - Tree', variable=self.__var, value=8)
@@ -37,12 +38,13 @@ class AlgorithmsRadioButtons(Frame):
         self.__depth_limited.grid(row=4,column=0,padx=(0, 5),pady=(5,5),sticky="W")
         self.__iterative_deepening.grid(row=5,column=0,padx=(0, 5),pady=(5,5),sticky="W")
         self.__uniform.grid(row=6,column=0,padx=(0, 5),pady=(5,5),sticky="W")
-        self.__informed_label.grid(row=7,column=0,padx=(0, 5),pady=(10,10),sticky="W")
-        self.__A.grid(row=8,column=0,padx=(0, 5),pady=(5,5),sticky="W")
-        self.__greedy.grid(row=9,column=0,padx=(0, 5),pady=(5,5),sticky="W")
-        self.__ATree.grid(row=10,column=0,padx=(0, 5),pady=(5,5),sticky="W")
-        self.__GreedyTree.grid(row=11,column=0,padx=(0, 5),pady=(5,5),sticky="W")
-        self.__button.grid(row=12,column=0,sticky = "NSEW",pady=(5,5))
+        self.__uniformTree.grid(row=7,column=0,padx=(0, 5),pady=(5,5),sticky="W")
+        self.__informed_label.grid(row=8,column=0,padx=(0, 5),pady=(10,10),sticky="W")
+        self.__A.grid(row=9,column=0,padx=(0, 5),pady=(5,5),sticky="W")
+        self.__greedy.grid(row=10,column=0,padx=(0, 5),pady=(5,5),sticky="W")
+        self.__ATree.grid(row=11,column=0,padx=(0, 5),pady=(5,5),sticky="W")
+        self.__GreedyTree.grid(row=12,column=0,padx=(0, 5),pady=(5,5),sticky="W")
+        self.__button.grid(row=13,column=0,sticky = "NSEW",pady=(5,5))
         self.__depth_limited_text.grid(row=4,column=1)
         self.rowconfigure("all",weight=1)
 
@@ -69,6 +71,8 @@ class AlgorithmsRadioButtons(Frame):
             self.__submit_callback(AStarSearchTree)
         elif num == 9:
             self.__submit_callback(GreedyBestFirstSearchTree)
+        elif num == 10:
+            self.__submit_callback(UniformCostSearchTree)
         else:
             messagebox.showerror(title="Submit Error",message="You need to choose Algorithm")
 

@@ -123,12 +123,26 @@ class IterativeDeepeningSearch(DepthLimitedSearch):
 
 
 class UniformCostSearch(BaseAlgorithm):
-    
+
     def expand_node(self):
         super(UniformCostSearch,self).expand_node()        
         self.fringe.sort()
+class UniformCostSearchTree(BaseAlgorithm):
 
-
+    def expand_node(self):
+        super(UniformCostSearch,self).expand_node()        
+        self.fringe.sort()
+    def pick_node(self):
+        '''
+        implementation to pick new node  - tree style (no memory)      
+        ''' 
+        try: 
+            self.current_node = self.fringe.pop(0)
+            self.current_node.mark_active()
+            time.sleep(SLEEP_AMOUNT)
+        except :
+            self.current_node = None
+            
 class GreedyBestFirstSearch(BaseAlgorithm):
     
     def expand_node(self):
@@ -156,7 +170,6 @@ class AStarSearchTree(BaseAlgorithm):
             child.set_value(child.get_node_heurastic()+child.get_cost())
         self.fringe.sort()
     def pick_node(self):
-
         '''
         implementation to pick new node  - tree style (no memory)      
         ''' 
